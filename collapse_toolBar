@@ -1,284 +1,247 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/app_bar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fitsSystemWindows="true"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e91e63"
+        android:fitsSystemWindows="true"
+        android:minHeight="0dp"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_scrollFlags="scroll|snap">
 
-            <android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/collapsing_toolbar"
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                app:contentScrim="?attr/colorPrimary"
-                app:expandedTitleMarginEnd="64dp"
-                app:expandedTitleMarginStart="48dp"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="parallax"
+                android:minHeight="0dp">
 
                 <ImageView
-                    android:id="@+id/image"
+                    android:id="@+id/index_icon"
                     android:layout_width="match_parent"
-                    android:layout_height="350dp"
-                    android:src="@drawable/collapse"
+                    android:layout_height="250dp"
+                    app:layout_collapseMode="parallax"
                     android:fitsSystemWindows="true"
-                    android:scaleType="centerCrop"
-                    app:layout_collapseMode="parallax" />
+                    android:scaleType="centerCrop" />
 
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar"
+                <ImageView
+                    android:id="@+id/tool"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:minHeight="0dp"
-                    app:layout_collapseMode="pin" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:src="?android:attr/homeAsUpIndicator" />
 
-            </android.support.design.widget.CollapsingToolbarLayout>
+                <ImageView
+                    android:id="@+id/sh_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:src="@android:drawable/ic_menu_share" />
 
-            <android.support.v4.widget.NestedScrollView
+                <TextView
+                    android:id="@+id/mmenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:minWidth="25dp"
+                    android:text="&#8942;"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <RelativeLayout
+                    <TextView
+                        android:id="@+id/titleDes"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold"
+                        android:text="Title"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
-                        <TextView
-                            android:text="TextView"
-                            android:id="@+id/textVie"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <TextView
-                            android:text="TextView"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:layout_below="@+id/textVie"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <ImageView
-                            android:src="@drawable/data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                    </RelativeLayout>
-                    <RelativeLayout
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="1px"
+                        android:background="#333333"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"/>
 
-                        <TextView
-                            android:text="TextView"
-                            android:id="@+id/textView1"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <TextView
-                            android:text="TextView"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:layout_below="@+id/textView1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <ImageView
-                            android:src="@drawable/data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                    </RelativeLayout>
-                    <RelativeLayout
+                    <TextView
+                        android:id="@+id/body"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        style="@style/ItemDes"/>
 
-                        <TextView
-                            android:text="TextView"
-                            android:id="@+id/textView2"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <TextView
-                            android:text="TextView"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:layout_below="@+id/textView2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <ImageView
-                            android:src="@drawable/data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                    </RelativeLayout>
-                    <RelativeLayout
+                    <ImageView
+                        android:id="@+id/bodyi"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp" />
 
-                        <TextView
-                            android:text="TextView"
-                            android:id="@+id/textView3"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <TextView
-                            android:text="TextView"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:layout_below="@+id/textView3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <ImageView
-                            android:src="@drawable/data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                    </RelativeLayout>
-                    <RelativeLayout
+                    <TextView
+                        android:id="@+id/body1"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        style="@style/ItemDes" />
 
-                        <TextView
-                            android:text="TextView"
-                            android:id="@+id/textView4"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <TextView
-                            android:text="TextView"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:layout_below="@+id/textView4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <ImageView
-                            android:src="@drawable/data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                    </RelativeLayout>
-                    <RelativeLayout
+                    <ImageView
+                        android:id="@+id/bodyi1"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp" />
 
-                        <TextView
-                            android:text="TextView"
-                            android:id="@+id/textView5"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <TextView
-                            android:text="TextView"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:layout_below="@+id/textView5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <ImageView
-                            android:src="@drawable/data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                    </RelativeLayout>
-                    <RelativeLayout
+                    <TextView
+                        android:id="@+id/body2"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        style="@style/ItemDes"/>
 
-                        <TextView
-                            android:text="TextView"
-                            android:id="@+id/textView6"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <TextView
-                            android:text="TextView"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:layout_below="@+id/textView6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <ImageView
-                            android:src="@drawable/data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                    </RelativeLayout>
-                    <RelativeLayout
+                    <ImageView
+                        android:id="@+id/bodyi2"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp" />
 
-                        <TextView
-                            android:text="TextView"
-                            android:id="@+id/textView7"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <TextView
-                            android:text="TextView"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:layout_below="@+id/textView7"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <ImageView
-                            android:src="@drawable/data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                    </RelativeLayout>
-                    <RelativeLayout
+                    <TextView
+                        android:id="@+id/body3"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content"
+                        style="@style/ItemDes" />
 
-                        <TextView
-                            android:text="TextView"
-                            android:id="@+id/textView"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <TextView
-                            android:text="TextView"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center"
-                            android:layout_below="@+id/textView"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"/>
-                        <ImageView
-                            android:src="@drawable/data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                    <ImageView
+                        android:id="@+id/bodyi3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp" />
 
-                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/body4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/ItemDes"/>
 
+                    <ImageView
+                        android:id="@+id/bodyi4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/body5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/ItemDes" />
+
+                    <ImageView
+                        android:id="@+id/bodyi5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/body6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/ItemDes" />
+
+                    <ImageView
+                        android:id="@+id/bodyi6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@mipmap/ic_launcher"/>
+
+                    <TextView
+                        android:id="@+id/body7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/ItemDes" />
+
+                    <ImageView
+                        android:id="@+id/bodyi7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@mipmap/ic_launcher"/>
+
+                    <TextView
+                        android:id="@+id/body8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/ItemDes" />
+
+                    <ImageView
+                        android:id="@+id/bodyi8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@mipmap/ic_launcher"/>
+
+                    <TextView
+                        android:id="@+id/body9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/ItemDes" />
                 </LinearLayout>
-            </android.support.v4.widget.NestedScrollView>
-
-        </android.support.design.widget.AppBarLayout>
-
+            </android.support.v7.widget.CardView>
+    </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>
