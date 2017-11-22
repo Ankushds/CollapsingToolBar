@@ -1,72 +1,35 @@
-public class MainActivity extends AppCompatActivity {
-    LocationManager lm;
-    String sorter, s, s1, s2, s3, s4, s5;
-    String TAG = "MAINACTIVITYTAG";
-    int masterLength = 250, lf = 0;
-    List<String> list = new ArrayList<>();
+public class MainActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        sorter = getResources().getString(R.string.sorter);
-        /*s = sorter.substring(0, 250);
-        int l = s.lastIndexOf('.');
-        s = sorter.substring(0, l + 1);
-        s1 = sorter.substring(l + 1, l + 252);
-        int l1 = s1.lastIndexOf('.');
-        s1 = sorter.substring(l + 1, l + l1 + 3);
-        s2 = sorter.substring(l + l1 + 3, l + l1 + 253);
-        int l2 = s2.lastIndexOf('.');
-        s2 = sorter.substring(l + l1 + 3, l + l1 + l2 + 5);
-        s3 = sorter.substring(l + l1 + l2 + 5, l + l1 + l2 + 256);
-        int l3 = s3.lastIndexOf('.');
-        s3 = sorter.substring(l + l1 + l2 + 5, l + l1 + l2 + l3 + 7);
-        s4 = sorter.substring(l + l1 + l2 + l3 + 7, l + l1 + l2 + l3 + 257);
-        int l4 = s4.lastIndexOf('.');
-        s4 = sorter.substring(l + l1 + l2 + l3 + 7, l + l1 + l2 + l3 + l4 + 9);
-        s5 = sorter.substring(l + l1 + l2 + l3 + l4 + 9, l + l1 + l2 + l3 + l4 + 259);
-        int l5 = s5.lastIndexOf('.');
-        s5 = sorter.substring(l + l1 + l2 + l3 + l4 + 9, l + l1 + l2 + l3 + l4 + l5 + 11);*/
-        while (masterLength <= sorter.length()) {
+    public static void main(String[] args) {
+        String s, sorter;
+        int masterLength = 30, lf = 0, ln = 0,validate=1;
+        sorter = " Before Espresso can interact with the app under test, you must first specify the UI component or view. Espresso supports the use of Hamcrest matchers for specifying views and adapters in your app.\n" +
+                "\n" +
+                "To find the view, call the onView() method and pass in a view matcher that specifies the view that you are targeting. This is described in more detail in Specifying a View Matcher. The onView() method returns a ViewInteraction object that allows your test to interact with the view. However, calling the onView() method may not work if you want to locate a view in an RecyclerView layout. In this case, follow the instructions in Locating a view in an AdapterView instead.\n" +
+                "\n" +
+                "Note: The onView() method does not check if the view you specified is valid. Instead, Espresso searches only the current view hierarchy, using the matcher provided. If no match is found, the method throws a NoMatchingViewException.\n" +
+                "\n" +
+                "The following code snippet shows how you might write a test that accesses an EditText field, enters a string of text, closes the virtual keyboard, and then performs a button click. ";
+
+        while (sorter.length()>=masterLength) {
             s = sorter.substring(lf, masterLength);
-            int ln = s.lastIndexOf('.');
-            Log.d(TAG, "" + ln+" , "+s.length());
-            ln = ln + 1;
-            s = s.substring(lf, ln);
-            list.add(s);
-            masterLength = ln + masterLength;
-        }
-
-     /*   Log.d(TAG, s1);
-        Log.d(TAG, s2);
-        Log.d(TAG, s3);
-        Log.d(TAG, s4);
-        Log.d(TAG, s5);*/
-    }
-
-    public void findLength(View view) {
-        EditText et = (EditText) findViewById(R.id.et);
-        TextView tv = (TextView) findViewById(R.id.tv);
-        switch (et.getText().toString().trim()) {
-            case "0":
-                tv.setText("The Text Length is : " + s.length());
-                break;
-            case "1":
-                tv.setText("The Text Length is : " + s1.length());
-                break;
-            case "2":
-                tv.setText("The Text Length is : " + s2.length());
-                break;
-            case "3":
-                tv.setText("The Text Length is : " + s3.length());
-                break;
-            case "4":
-                tv.setText("The Text Length is : " + s4.length());
-                break;
-            case "5":
-                tv.setText("The Text Length is : " + s5.length());
-                break;
+            int index = s.lastIndexOf('.');
+            if (index != -1){
+                ln = ln + index+1;
+                s = sorter.substring(lf, ln);
+                lf = ln;
+                masterLength = ln + 10;
+            }else{
+                s = sorter.substring(lf);
+                index = s.indexOf('.');
+                ln = ln + index+1;
+                s = sorter.substring(lf, ln);
+                lf = ln;
+                masterLength = ln + 10;
+            }
+            System.out.println("String item is S : " + s.trim());
         }
     }
+
 }
+
